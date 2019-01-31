@@ -1,9 +1,10 @@
-import { mergeResolvers } from "merge-graphql-schemas";
+import { mergeResolvers } from 'merge-graphql-schemas';
 
-import User from "./User/";
-import Post from "./Post/";
-import Comment from "./Comment/";
+// import User from './User/'
+// import Post from './Post/'
+// import Comment from './Comment/'
+import Quote from './Quote/'
 
-const resolvers = [User, Post, Comment];
+const resolvers = [ Quote ]
 
-export default mergeResolvers(resolvers);
+export default mergeResolvers(resolvers)

@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-import { ObjectID } from "mongodb";
+import mongoose from 'mongoose';
+import { ObjectID } from 'mongodb';
 
 const Schema = mongoose.Schema;
 
@@ -22,14 +22,14 @@ const PostSchema = new Schema({
   },
   author: {
     type: Schema.Types.ObjectId,
-    ref: "User"
+    ref: 'User'
   },
   comments: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Comment"
+      ref: 'Comment'
     }
   ]
 });
 
-export default mongoose.model("Post", PostSchema);
+export default mongoose.model('Post', PostSchema);

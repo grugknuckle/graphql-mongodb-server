@@ -30,7 +30,7 @@ mongoose
       useNewUrlParser: true
     }
   )
-  .then(() => console.log("MongoDB connected"))
+  .then(() => console.log(`MongoDB connected to ${db.split('/').pop()}`))
   .catch(err => console.log(err));
 
 const server = new GraphQLServer({
@@ -39,5 +39,5 @@ const server = new GraphQLServer({
 });
 
 server.start(options, ({ port }) => {
-  console.log(`🚀 Server is running on http://localhost:${port}`);
+  console.log(`GraphQL server is running on http://localhost:${port}`);
 });

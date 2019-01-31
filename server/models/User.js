@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-import { ObjectID } from "mongodb";
+import mongoose from 'mongoose';
+import { ObjectID } from 'mongodb';
 
 const Schema = mongoose.Schema;
 
@@ -24,15 +24,15 @@ const UserSchema = new Schema({
   posts: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Post"
+      ref: 'Post'
     }
   ],
   comments: [
     {
       type: Schema.Types.ObjectId,
-      ref: "Comment"
+      ref: 'Comment'
     }
   ]
 });
 
-export default mongoose.model("User", UserSchema);
+export default mongoose.model('User', UserSchema);
