@@ -34,9 +34,10 @@ export default `
   }
   
   input UpdateQuoteInput {
-    title: String
-    body: String
+    body: String,
+    author: String
     source: String
+    votes: Int
   }
 
   enum MutationType {
