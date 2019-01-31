@@ -1,0 +1,17 @@
+https://mlab.com/home
+
+
+mongodb database
+adawg-db01
+
+Using Mongo Shell
+% mongo ds117545.mlab.com:17545/adawg-db01 -u <dbuser> -p <dbpassword>
+
+connection URI
+mongodb://<dbuser>:<dbpassword>@ds117545.mlab.com:17545/adawg-db01
+
+mongodb://grugknuckle:9KidW7yv9RMb7z4@ds117545.mlab.com:17545/adawg-db01
+
+username: grugknuckle
+
+password: 9KidW7yv9RMb7z4
