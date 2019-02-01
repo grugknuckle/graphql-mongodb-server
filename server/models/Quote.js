@@ -28,7 +28,11 @@ const QuoteSchema = new Schema({
     required: false,
     default: 'Unknown'
   },
-  // tags: [ String ],
+  tags: {
+    type: [ String ],
+    required: false,
+    default: []
+  },
   votes: {
     type: Number,
     required: false,

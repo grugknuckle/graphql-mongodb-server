@@ -4,7 +4,8 @@ export default `
     body: String!
     source: String!
     author: String!
-    votes: Int! 
+    tags: [String!]!
+    votes: Int!
   }
 
   type Query {
@@ -31,12 +32,14 @@ export default `
     body: String!
     author: String!
     source: String!
+    tags: [String!]!
   }
   
   input UpdateQuoteInput {
     body: String,
     author: String
     source: String
+    tags: [String]
     votes: Int
   }
 
