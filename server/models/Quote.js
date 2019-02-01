@@ -1,11 +1,11 @@
-import mongoose from 'mongoose';
-import { ObjectID } from 'mongodb';
+import mongoose from 'mongoose'
+import { ObjectID } from 'mongodb'
 
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema
 
 ObjectID.prototype.valueOf = function() {
-  return this.toString();
-};
+  return this.toString()
+}
 
 const QuoteSchema = new Schema({
   body: {
@@ -34,6 +34,6 @@ const QuoteSchema = new Schema({
     required: false,
     default: 0
   }
-});
+})
 
-export default mongoose.model('Quote', QuoteSchema);
+export default mongoose.model('Quote', QuoteSchema)

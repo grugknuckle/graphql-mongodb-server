@@ -1,9 +1,9 @@
-import { mergeTypes } from 'merge-graphql-schemas';
+import { mergeTypes } from 'merge-graphql-schemas'
 
-// import User from './User/'
-// import Post from './Post/'
-// import Comment from './Comment/'
-import Quote from './Quote/'
+// import User from './User'
+// import Post from './Post'
+// import Comment from './Comment'
+import Quote from './Quote'
 
 const typeDefs = [Quote]
 

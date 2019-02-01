@@ -21,6 +21,8 @@ const context = {
   pubsub
 };
 
+// suppress deprecation warning ... see https://github.com/Automattic/mongoose/issues/7108
+mongoose.set('useFindAndModify', false);
 // Connect to MongoDB with Mongoose.
 mongoose
   .connect(
