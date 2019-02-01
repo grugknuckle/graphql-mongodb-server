@@ -10,10 +10,9 @@
   "keywords": [
     "graphql",
     "mongodb",
-    "boilerplate",
     "server"
   ],
-  "author": "Leonardo Maldonado <leonardomso11@gmail.com>",
+  "author": "Aaron Wolbach <aaron.wolbach@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.1.2",

@@ -1,28 +1,28 @@
-require("dotenv").config();
-import { GraphQLServer, PubSub } from "graphql-yoga";
-import mongoose from "mongoose";
+require("dotenv").config()
+import { GraphQLServer, PubSub } from "graphql-yoga"
+import mongoose from "mongoose"
 
-import schema from "../graphql/";
-import { models } from "./config/db/";
+import schema from "../graphql/"
+import { models } from "./config/db"
 
-const { mongoURI: db } = process.env;
+const { mongoURI: db } = process.env
 
-const pubsub = new PubSub();
+const pubsub = new PubSub()
 
 const options = {
   port: process.env.PORT || "4000",
   endpoint: "/graphql",
   subscriptions: "/subscriptions",
   playground: "/playground"
-};
+}
 
 const context = {
   models,
   pubsub
-};
+}
 
 // suppress deprecation warning ... see https://github.com/Automattic/mongoose/issues/7108
-mongoose.set('useFindAndModify', false);
+mongoose.set('useFindAndModify', false)
 // Connect to MongoDB with Mongoose.
 mongoose
   .connect(
@@ -33,13 +33,13 @@ mongoose
     }
   )
   .then(() => console.log(`MongoDB connected to ${db.split('/').pop()}`))
-  .catch(err => console.log(err));
+  .catch(err => console.log(err))
 
 const server = new GraphQLServer({
   schema,
   context
-});
+})
 
 server.start(options, ({ port }) => {
-  console.log(`GraphQL server is running on http://localhost:${port}`);
-});
+  console.log(`GraphQL server is running on http://localhost:${port}`)
+})
