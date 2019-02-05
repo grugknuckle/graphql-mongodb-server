@@ -6,19 +6,35 @@ export default {
     quote: async (parent, { _id }, context, info) => {
       return await Quote.findOne({ _id }).exec()
     },
-    quotes: async (parent, args, context, info) => {
-      const res = await Quote.find({})
-        .populate()
-        .exec()
-
-      return res.map(quote => ({
-        _id: quote._id.toString(),
-        body: quote.body,
-        author: quote.author,
-        source: quote.source,
-        tags: quote.tags,
-        votes: quote.votes
-      }))
+    quotes: async (parent, { query, options }, context, info) => {
+      console.log('Querying: ', query, options)
+      let q = {}
+      if (query.author) {
+        q.author = new RegExp(query.author, 'i')
+      }
+      if (query.source) {
+        q.source = new RegExp(query.source, 'i')
+      }
+      if (query.tags) {
+        q.tags = new RegExp(query.tags, 'i')
+      }
+      return Quote.paginate(q, options)
+        .then(result => {
+          let docs = result.docs.map(quote => ({
+            _id: quote._id.toString(),
+            body: quote.body,
+            author: quote.author,
+            source: quote.source,
+            tags: quote.tags,
+            votes: quote.votes
+          }))
+          return {
+            docs,
+            total: result.totalDocs,
+            limit: result.limit,
+            offset: result.offset
+          }
+        })
     }
   },
   Mutation: {

@@ -10,7 +10,7 @@ export default `
 
   type Query {
     quote(_id: ID!): Quote!
-    quotes: [Quote!]!
+    quotes(query: QuoteQuery, options: QuoteQueryOptions): QuoteOutput!
   }
 
   type Mutation {
@@ -23,9 +23,29 @@ export default `
     quote: QuoteSubscriptionPayload!
   }
 
+  type QuoteOutput {
+    docs: [Quote!]!
+    total: Int
+    limit: Int
+    offset: Int
+  }
+
   type QuoteSubscriptionPayload {
     mutation: MutationType!
     quote: Quote!
+  }
+
+  input QuoteQuery {
+    author: String
+    tags: String
+    source: String
+  }
+
+  input QuoteQueryOptions {
+    page: Int
+    limit: Int
+    offset: Int
+    sort: String
   }
 
   input CreateQuoteInput {
@@ -36,11 +56,11 @@ export default `
   }
   
   input UpdateQuoteInput {
-    body: String,
-    author: String
-    source: String
-    tags: [String]
-    votes: Int
+    body: String!,
+    author: String!
+    source: String!
+    tags: [String]!
+    votes: Int!
   }
 
   enum MutationType {

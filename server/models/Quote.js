@@ -1,13 +1,12 @@
 import mongoose from 'mongoose'
 import { ObjectID } from 'mongodb'
-
-const Schema = mongoose.Schema
+const mongoosePaginate = require('mongoose-paginate-v2')
 
 ObjectID.prototype.valueOf = function() {
   return this.toString()
 }
 
-const QuoteSchema = new Schema({
+const QuoteSchema = new mongoose.Schema({
   body: {
     type: String,
     required: true
@@ -19,7 +18,7 @@ const QuoteSchema = new Schema({
   },
   /*
   author: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
   */
@@ -40,4 +39,5 @@ const QuoteSchema = new Schema({
   }
 })
 
+QuoteSchema.plugin(mongoosePaginate)
 export default mongoose.model('Quote', QuoteSchema)
