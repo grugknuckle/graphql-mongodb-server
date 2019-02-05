@@ -1,5 +1,5 @@
 
-import Quote from "../../server/database/models/Quote"
+import Quote from "./../models/Quote"
 
 export default {
   Query: {
