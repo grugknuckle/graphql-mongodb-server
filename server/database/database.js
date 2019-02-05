@@ -1,9 +1,10 @@
-import mongoose from "mongoose"
+import mongoose from 'mongoose'
+import { models } from './models'
 
 export default function (db) {
   // Connect to MongoDB with Mongoose.
   mongoose.set('useFindAndModify', false) // suppress deprecation warning ... see https://github.com/Automattic/mongoose/issues/7108
-  mongoose
+  return mongoose
     .connect(
       db,
       {
@@ -11,7 +12,10 @@ export default function (db) {
         useNewUrlParser: true
       }
     )
-    .then(() => console.log(`MongoDB connected to ${db.split('/').pop()}`))
+    .then(() => {
+      console.log(`MongoDB connected to ${db.split('/').pop()}`)
+      return models
+    })
     .catch(err => console.log(err))
 }
 
