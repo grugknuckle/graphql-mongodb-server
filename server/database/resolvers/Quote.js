@@ -1,7 +1,7 @@
 
-import Quote from './../models/Quote'
+const Quote = require('./../models/Quote')
 
-export default {
+module.exports = {
   Query: {
     quote: async (parent, { _id }, context, info) => {
       return await Quote.findOne({ _id }).exec()

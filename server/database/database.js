@@ -1,7 +1,7 @@
-import mongoose from 'mongoose'
-import { models } from './models'
+const mongoose = require('mongoose')
+const { models } = require('./models')
 
-export default function (db) {
+module.exports = function (db) {
   // Connect to MongoDB with Mongoose.
   mongoose.set('useFindAndModify', false) // suppress deprecation warning ... see https://github.com/Automattic/mongoose/issues/7108
   return mongoose

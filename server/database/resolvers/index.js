@@ -1,7 +1,6 @@
-import { mergeResolvers } from 'merge-graphql-schemas'
-
-import Quote from './Quote'
+const { mergeResolvers } = require('merge-graphql-schemas')
+const Quote = require('./Quote')
 
 const resolvers = [ Quote ]
 
-export default mergeResolvers(resolvers)
+module.exports = mergeResolvers(resolvers)

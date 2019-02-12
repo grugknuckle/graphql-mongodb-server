@@ -1,6 +1,6 @@
 
-import Quote from './Quote'
+const Quote = require('./Quote')
 
-export const models = {
+module.exports.models = {
   Quote
 }

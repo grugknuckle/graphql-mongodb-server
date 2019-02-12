@@ -1,4 +1,4 @@
-export default `
+module.exports = `
   type Quote {
     _id: ID!
     body: String!

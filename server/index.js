@@ -1,6 +1,6 @@
 require('dotenv').config()
-import database from './database/database.js'
-import graphql from './database/graphql.js'
+const database = require('./database/database.js')
+const graphql = require('./database/graphql.js')
 
 // Connect to mongoDB with connection string in environment variables.
 const models = database(process.env.mongoURI)

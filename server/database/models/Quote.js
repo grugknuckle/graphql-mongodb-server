@@ -1,5 +1,5 @@
-import mongoose from 'mongoose'
-import { ObjectID } from 'mongodb'
+const mongoose = require('mongoose')
+const { ObjectID } = require('mongodb')
 const mongoosePaginate = require('mongoose-paginate-v2')
 
 ObjectID.prototype.valueOf = function() {
@@ -40,4 +40,4 @@ const QuoteSchema = new mongoose.Schema({
 })
 
 QuoteSchema.plugin(mongoosePaginate)
-export default mongoose.model('Quote', QuoteSchema)
+module.exports = mongoose.model('Quote', QuoteSchema)
