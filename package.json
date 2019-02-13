@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run prod",
     "dev": "nodemon server/index.js development -L",
-    "prod": "node ./src/server.js production",
+    "prod": "node server/index.js production",
     "deploy": "git push heroku master"
   },
   "keywords": [
