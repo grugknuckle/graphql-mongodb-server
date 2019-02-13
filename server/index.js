@@ -6,10 +6,10 @@ const graphql = require('./database/graphql.js')
 const models = database(process.env.mongoURI)
 const server = graphql(models)
 
-const dev = !(process.env.NODE_ENV === 'production')
+const dev = !(process.env.MODE === 'production')
 const host = process.env.HOST || '127.0.0.1'
 const port = process.env.PORT || '4000'
-const domain = `${dev ? 'http' : 'https' }://${ host }:${ port }`
+const domain = dev ? `http://localhost:${ port }` : `https://${ host }`
 
 const options = {
   port,
