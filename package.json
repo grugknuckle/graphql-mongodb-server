@@ -4,8 +4,10 @@
   "description": "A GraphQL MongoDB server.",
   "main": "index.js",
   "scripts": {
-    "start": "npm run server",
-    "dev": "nodemon server/index.js"
+    "start": "npm run prod",
+    "dev": "nodemon server/index.js development -L",
+    "prod": "node ./src/server.js production",
+    "deploy": "git push heroku master"
   },
   "keywords": [
     "graphql",
@@ -18,7 +20,6 @@
     "nodemon": "^1.18.6"
   },
   "dependencies": {
-    "concurrently": "^4.1.0",
     "dotenv": "^6.1.0",
     "graphql": "^14.0.2",
     "graphql-subscriptions": "^1.0.0",
