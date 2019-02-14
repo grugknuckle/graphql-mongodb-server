@@ -9,8 +9,9 @@ module.exports = `
   }
 
   type Query {
-    quote(_id: ID): Quote!
+    quote(_id: ID!): Quote!
     quotes(query: QuoteQuery, options: QuoteQueryOptions): QuoteOutput!
+    randomQuote(query: QuoteQuery): Quote!
   }
 
   type Mutation {
@@ -56,11 +57,11 @@ module.exports = `
   }
   
   input UpdateQuoteInput {
-    body: String!,
-    author: String!
-    source: String!
-    tags: [String]!
-    votes: Int!
+    body: String
+    author: String
+    source: String
+    tags: [String]
+    votes: Int
   }
 
   enum MutationType {
