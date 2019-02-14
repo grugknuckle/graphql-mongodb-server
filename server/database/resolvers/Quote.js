@@ -4,7 +4,19 @@ const Quote = require('./../models/Quote')
 module.exports = {
   Query: {
     quote: async (parent, { _id }, context, info) => {
-      return await Quote.findOne({ _id }).exec()
+      if (_id) {
+        // return the record with the passed id
+        return await Quote.findOne({ _id }).exec()
+      } else {
+        // count how many quote records are in the DB
+        return Quote.count().exec((err, count) => {
+          // make a random integer
+          let random = Math.floor(Math.random() * count)
+          // Again, query all quotes, but only fetch one offset by our random intger
+          return Quote.findOne().skip(random).exec()
+        })
+      }
+      
     },
     quotes: async (parent, { query, options }, context, info) => {
       console.log('Querying: ', query, options)

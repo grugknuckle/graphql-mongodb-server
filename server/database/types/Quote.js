@@ -9,7 +9,7 @@ module.exports = `
   }
 
   type Query {
-    quote(_id: ID!): Quote!
+    quote(_id: ID): Quote!
     quotes(query: QuoteQuery, options: QuoteQueryOptions): QuoteOutput!
   }
 
